@@ -1,0 +1,7 @@
+{
+  "_说明": "RunningHub 账户私有凭据：api_key 与 workflow_id 都属于你自己的账户，勿外传。拿到本项目的人请勿使用他人凭据——应把 工作流/文生音乐带谱_api.json 上传到自己的 RunningHub 账户，在网页端手动成功运行一次，再从地址栏复制自己的 workflow_id 填到这里，并填入自己的 api_key。",
+  "接口": {
+    "api_key": "",
+    "workflow_id": ""
+  }
+}

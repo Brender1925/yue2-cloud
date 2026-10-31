@@ -1,0 +1,10 @@
+{
+  "_说明": "本地 ComfyUI 生成配置。本地 ComfyUI 不需要 API key；RunningHub 凭据放在 云端配置.json。启动器里可选云端或本地；命令行可用 --后端 cloud|local 覆盖（默认读本文件的 后端 字段）。",
+  "后端": "local",
+  "本地ComfyUI": {
+    "base_url": "http://127.0.0.1:8188",
+    "workflow_json": "工作流/文生音乐带谱_api.json",
+    "轮询间隔秒": 3,
+    "单任务超时秒": 2400
+  }
+}

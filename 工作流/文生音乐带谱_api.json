@@ -1,0 +1,272 @@
+{
+  "5": {
+    "inputs": {
+      "seconds": [
+        "22",
+        1
+      ],
+      "batch_size": 1
+    },
+    "class_type": "EmptyYuE2LatentAudio",
+    "_meta": {
+      "title": "空 YuE2 潜空间音频"
+    }
+  },
+  "8": {
+    "inputs": {
+      "seed": 7,
+      "steps": 32,
+      "cfg": 1,
+      "sampler_name": "dpm_2",
+      "scheduler": "sgm_uniform",
+      "denoise": 1,
+      "model": [
+        "15",
+        0
+      ],
+      "positive": [
+        "22",
+        0
+      ],
+      "negative": [
+        "22",
+        0
+      ],
+      "latent_image": [
+        "5",
+        0
+      ]
+    },
+    "class_type": "KSampler",
+    "_meta": {
+      "title": "K采样器"
+    }
+  },
+  "9": {
+    "inputs": {
+      "samples": [
+        "8",
+        0
+      ],
+      "vae": [
+        "15",
+        2
+      ]
+    },
+    "class_type": "VAEDecodeAudio",
+    "_meta": {
+      "title": "VAE解码_Audio"
+    }
+  },
+  "10": {
+    "inputs": {
+      "filename_prefix": "audio/YuE2",
+      "format": "mp3",
+      "format.quality": "V0",
+      "audio": [
+        "38",
+        0
+      ]
+    },
+    "class_type": "SaveAudioAdvanced",
+    "_meta": {
+      "title": "保存音频（高级）"
+    }
+  },
+  "15": {
+    "inputs": {
+      "ckpt_name": "yue2_3b_bf16.safetensors"
+    },
+    "class_type": "CheckpointLoaderSimple",
+    "_meta": {
+      "title": "Checkpoint加载器(简易)"
+    }
+  },
+  "22": {
+    "inputs": {
+      "style": [
+        "52",
+        1
+      ],
+      "lyrics": [
+        "52",
+        0
+      ],
+      "abc": [
+        "52",
+        2
+      ],
+      "seed": 542709035118643,
+      "mode": "full",
+      "max_duration": [
+        "45",
+        0
+      ],
+      "temperature": 0.7600000000000001,
+      "top_p": 0.95,
+      "top_k": 100,
+      "repetition_penalty": 1.2,
+      "cfg_scale": 1,
+      "clip": [
+        "15",
+        1
+      ]
+    },
+    "class_type": "YuE2GenerateMusic",
+    "_meta": {
+      "title": "YuE2 生成音乐"
+    }
+  },
+  "27": {
+    "inputs": {
+      "value": "参考以下风格创作一首全新曲目：Techno，127-137 BPM，F 小调，straight 四踩底鼓（four-on-the-floor），极强律动感与节奏感，工业质感打击乐、金属敲击、催眠合成器琶音序列、噪声纹理。在保持此风格与律动感的前提下，乐器编配更加丰富：分层叠加明亮琶音、复古模拟合成器主奏、氛围合成器铺底、多层打击乐、金属反镲与回声过渡点缀。严格不使用任何贝斯乐器——无贝斯线、无低音、无 sub bass。副歌高潮前置，深夜地下俱乐部氛围，结构紧凑，loop-friendly，纯音乐无人声。"
+    },
+    "class_type": "PrimitiveStringMultiline",
+    "_meta": {
+      "title": "字符串（多行）"
+    }
+  },
+  "36": {
+    "inputs": {
+      "model": [
+        "39",
+        0
+      ],
+      "audio": [
+        "9",
+        0
+      ]
+    },
+    "class_type": "MelBandRoFormerSampler",
+    "_meta": {
+      "title": "Mel-Band RoFormer Sampler",
+      "aux_id": "kijai/ComfyUI-MelBandRoFormer",
+      "ver": "7b12f8c6105666552ac4e4f08b73e0f96eb05c64"
+    }
+  },
+  "38": {
+    "inputs": {
+      "anything": [
+        "36",
+        1
+      ]
+    },
+    "class_type": "Bjornulf_FreeVRAM",
+    "_meta": {
+      "title": "🧹 Free VRAM hack"
+    }
+  },
+  "39": {
+    "inputs": {
+      "model_name": "MelBandRoFormer_comfy/MelBandRoformer_fp16.safetensors"
+    },
+    "class_type": "MelBandRoFormerModelLoader",
+    "_meta": {
+      "title": "Mel-Band RoFormer Model Loader",
+      "aux_id": "kijai/ComfyUI-MelBandRoFormer",
+      "ver": "7b12f8c6105666552ac4e4f08b73e0f96eb05c64"
+    }
+  },
+  "45": {
+    "inputs": {
+      "a": 120
+    },
+    "class_type": "CM_IntToFloat",
+    "_meta": {
+      "title": "整数到浮点"
+    }
+  },
+  "52": {
+    "inputs": {
+      "创作主题": [
+        "27",
+        0
+      ],
+      "工作模式": "文生歌词与乐谱",
+      "服务超时秒": 1800,
+      "声色": "自动（保留原曲）",
+      "押韵方案": "自动（按原词/自然押韵）",
+      "歌曲长度": "短曲（60-180秒）",
+      "歌词语言": "自动（按原歌词）",
+      "歌曲结构": "自动判断（按时长与平台）",
+      "创作幅度": "平衡扩写（推荐）",
+      "流派": "自动判断（根据主题）",
+      "情绪": "自动判断（根据主题）",
+      "乐器": "自动判断（根据主题）",
+      "节奏BPM": "自动判断（根据主题）",
+      "拍号": "自动判断（根据主题）",
+      "调式": "自动判断（根据主题）",
+      "使用场景": "自动判断（根据主题）",
+      "情绪弧": "自动判断（根据主题）",
+      "核心律动": "自动判断（根据主题）",
+      "人声音域": "自动判断（根据主题）",
+      "人声音色": "自动判断（根据主题）",
+      "演唱方式": "自动判断（根据主题）",
+      "和声伴唱": "自动判断（根据主题）",
+      "制作质感": "自动判断（根据主题）",
+      "空间混响": "自动判断（根据主题）",
+      "编曲密度": "自动判断（根据主题）",
+      "输出详略": "标准",
+      "原始ABC": "",
+      "最终ABC编辑稿": "",
+      "原歌曲说明": "",
+      "T8服务地址": "http://127.0.0.1:8189",
+      "歌词识别模型目录": "",
+      "ABC作谱模式": "完整谱（旋律+和弦）",
+      "ABC最大令牌": 8192,
+      "ABC温度": 0.7,
+      "ABCTopP": 0.9,
+      "ABCTopK": 30,
+      "ABC重复惩罚": 1.005,
+      "ABC重复窗口": 100,
+      "ABC随机种子": 0,
+      "硬性要求排除项": "",
+      "高级自定义音乐控制": "",
+      "音频转谱模型": "自动加载",
+      "音频转谱方式": "本地模型（自动准备）",
+      "歌词识别模型": "large-v3-turbo",
+      "YuE2ABC模型": [
+        "15",
+        1
+      ],
+      "动力源": [
+        "53",
+        0
+      ],
+      "文生标签": [
+        "27",
+        0
+      ]
+    },
+    "class_type": "WujiYue2Lyricist",
+    "_meta": {
+      "title": "☯️无极Yue2作词师"
+    }
+  },
+  "53": {
+    "inputs": {
+      "temperature": 0.7,
+      "max_tokens": 4096,
+      "seed": 889366923,
+      "usage_hint": "Runninghub Screenwriter 动力源：该节点仅输出动力源配置，不直接生成文本。"
+    },
+    "class_type": "RH_Screenwriter",
+    "_meta": {
+      "title": "Runninghub Screenwriter"
+    }
+  },
+  "55": {
+    "inputs": {
+      "filename_prefix": "ABC乐谱",
+      "format": "txt",
+      "text": [
+        "52",
+        2
+      ]
+    },
+    "class_type": "SaveText",
+    "_meta": {
+      "title": "保存文本"
+    }
+  }
+}

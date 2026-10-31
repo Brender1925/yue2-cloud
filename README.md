@@ -67,6 +67,11 @@ pip install -r requirements.txt
 
 `音源/` 已内置 `MuseScore_General.sf3` 和 FluidSynth，无需额外安装。
 
+> **关于 Git LFS**：`音源/MuseScore_General.sf3`（38MB）通过 [Git LFS](https://git-lfs.com/) 存储，
+> 仓库中只保存一个 133 字节的指针文件。克隆时需确保已安装 Git LFS
+> （GitHub Desktop / Git for Windows 默认已包含；Linux 可执行 `apt install git-lfs`）。
+> 未安装 LFS 时该文件会是一个指针文本，无法直接使用。
+
 ## 五、用法
 
 ### 0. 快速开始（推荐）
